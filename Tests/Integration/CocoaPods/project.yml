@@ -1,0 +1,16 @@
+name: PodInstall
+options:
+  bundleIdPrefix: com.mapbox.common.integration.PodInstall
+targets:
+  PodInstall:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.2"
+    sources: [Sources]
+    dependencies:
+      - sdk: libc++.tbd
+    settings:
+        DEVELOPMENT_TEAM: "GJZR2MEM28"
+        SUPPORTS_MACCATALYST: YES
+        DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER: YES
+        OTHER_LDFLAGS: "-lc++"

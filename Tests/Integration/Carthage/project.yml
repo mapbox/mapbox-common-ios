@@ -1,0 +1,15 @@
+name: CarthageTest
+options:
+  bundleIdPrefix: com.mapbox.common.carthage
+targets:
+  CarthageTest:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.2"
+    sources: [Sources]
+    dependencies:
+      - framework: Carthage/Build/iOS/MapboxCommon.framework
+      - sdk: libc++.tbd
+    settings:
+        DEVELOPMENT_TEAM: "GJZR2MEM28"
+        OTHER_LDFLAGS: "-lc++"

@@ -1,0 +1,81 @@
+version: 2.1
+
+workflows:
+    version: 2
+    default:
+        jobs:
+            - macos-job:
+                name: SPM
+                xcode: "12.0.0" # Required for using binary frameworks with SPM
+                spm: true
+            - macos-job:
+                name: Carthage
+                carthage: true
+            - macos-job:
+                name: CocoaPods
+                cocoapods: true
+
+jobs:
+    macos-job:
+        parameters:
+            xcode:
+                type: string
+                default: "11.5.0"
+            cocoapods:
+                type: boolean
+                default: false
+            carthage:
+                type: boolean
+                default: false
+            spm:
+                type: boolean
+                default: false
+        macos:
+            xcode: << parameters.xcode >>
+        environment:
+            HOMEBREW_NO_AUTO_UPDATE: 1
+        steps:
+            - checkout
+            - run:
+                name: Ensure netrc
+                command: Tests/Integration/ensure_netrc.sh
+            - run:
+                name: Install XcodeGen
+                command: brew install xcodegen
+            - when:
+                condition: << parameters.carthage >>
+                steps:
+                  - run:
+                      name: Install Carthage
+                      command: |
+                        curl -OL "https://github.com/Carthage/Carthage/releases/download/0.35.0/Carthage.pkg"
+                        sudo installer -pkg Carthage.pkg -target /
+                  - run:
+                      name: Test Integration via Carthage
+                      command: Tests/Integration/test_carthage.sh
+            - when:
+                condition: << parameters.cocoapods >>
+                steps:
+                  - run:
+                      name: Test Integration via CocoaPods
+                      command: Tests/Integration/test_cocoapods.sh
+            - when:
+                condition: << parameters.spm >>
+                steps:
+                  - run:
+                      name: Build release script
+                      command: |
+                        pushd scripts/release
+                        swift build
+                        popd
+                  - run:
+                      name: SPM SSH fix
+                      command: |
+                        rm ~/.ssh/id_rsa
+                        for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts || true
+                  - run:
+                      name: Build and Run using SPM
+                      command: Tests/Integration/test_spm.sh
+                  - run:
+                      name: Verify LICENSE.md is up-to-date
+                      command: ./scripts/release/check-license.sh
