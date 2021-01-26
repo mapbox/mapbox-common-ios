@@ -73,8 +73,8 @@ struct MarketingVersion: ParsableCommand {
     func runReadmeVersionUpdate() throws {
         let readmeURL = projectPathURL.appendingPathComponent("README.md")
         
-        try replaceLineContaining(".package(url: \"git@github.com:mapbox/mapbox-common-ios.git\", from:",
-                                  with: ".package(url: \"git@github.com:mapbox/mapbox-common-ios.git\", from: \"\(marketingVersion)\"),",
+        try replaceLineContaining(".package(url: \"https://github.com/mapbox/mapbox-common-ios.git\", from:",
+                                  with: ".package(url: \"https://github.com/mapbox/mapbox-common-ios.git\", from: \"\(marketingVersion)\"),",
                                   in: readmeURL)
         
         try replaceLineContaining("pod 'MapboxCommon'",
