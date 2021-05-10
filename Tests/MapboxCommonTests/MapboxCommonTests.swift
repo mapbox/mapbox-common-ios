@@ -4,7 +4,7 @@ import MapboxCommon
 
 final class MapboxCommonTests: XCTestCase {
     func testVersion() {
-        XCTAssertTrue(Version.getCommonSDKVersionString().count > 0)
+        XCTAssertTrue(ValueConverter.toJson(forValue: 0) == "0")
     }
 
     static var allTests = [
