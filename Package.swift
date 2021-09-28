@@ -31,7 +31,7 @@ struct SDKRegistry {
     let host = "api.mapbox.com"
 
     func binaryTarget(name: String, version: String, path: String, filename: String, checksum: String) -> Target {
-        var url = "https://\(host)/downloads/v2/\(path)/snapshots/ios/v19.0.0/packages/\(filename)"
+        var url = "https://\(host)/downloads/v2/\(path)/snapshots/ios/19.0.0/packages/\(filename)"
         // s3://mapbox-api-downloads-production/v2/mapbox-common/snapshots/ios/release-v19.0-SNAPSHOT/packages/
         if let token = netrcToken {
             url += "?access_token=\(token)"
