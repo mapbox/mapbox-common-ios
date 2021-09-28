@@ -27,8 +27,6 @@ let package = Package(
     cxxLanguageStandard: .cxx14
 )
 
-
-
 struct SDKRegistry {
     let host = "api.mapbox.com"
 
