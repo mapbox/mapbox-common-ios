@@ -5,7 +5,7 @@ import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-let version = "19.0.0-rc.1-SNAPSHOT"
+let version = "21.0.0-rc.1-SNAPSHOT"
 let checksum = "02a4f99f8e344778248b41e237818f358a91a6e5fd9bb09d0d8826b05b9f3271"
 
 let package = Package(
@@ -33,6 +33,7 @@ struct SDKRegistry {
     func binaryTarget(name: String, version: String, path: String, filename: String, checksum: String) -> Target {
         var url = "https://\(host)/downloads/v2/\(path)/snapshots/ios/packages/\(version)/\(filename)"
         // var url = "https://\(host)/downloads/v2/\(path)/snapshots/ios/19.0.0/packages/\(filename)"
+        // https://api.mapbox.com/downloads/v2/mapbox-common/snapshots/ios/packages/19.0.0-rc.1-SNAPSHOT/MapboxCommon.zip
         // s3://mapbox-api-downloads-production/v2/mapbox-common/snapshots/ios/release-v19.0-SNAPSHOT/packages/
         if let token = netrcToken {
             url += "?access_token=\(token)"
