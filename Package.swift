@@ -33,7 +33,7 @@ struct SDKRegistry {
     let host = "api.mapbox.com"
 
     func binaryTarget(name: String, version: String, path: String, filename: String, checksum: String) -> Target {
-        var url = "https://\(host)/downloads/v2/\(path)/releases/ios/packages/\(version)/\(filename)"
+        var url = "https://\(host)/downloads/v2/\(path)/snapshots/ios/packages/\(version)/\(filename)"
         
         if let token = netrcToken {
             url += "?access_token=\(token)"
