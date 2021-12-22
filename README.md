@@ -1,5 +1,13 @@
 # mapbox-common-ios
 
+MapboxCommon provides common functionality among all Mapbox SDKs including:
+
+* [Maps](https://github.com/mapbox/mapbox-maps-ios)
+* [Navigation](https://github.com/mapbox/mapbox-navigation-ios)
+* [Search](https://github.com/mapbox/search-ios)
+
+To learn more about these SDKs please visit their repos on GitHub and the documentation at https://docs.mapbox.com/.
+
 ### Prerequisites
 
 Before you can download the Mapbox Common SDK, you need to create a token with `DOWNLOAD:READ` scope.
