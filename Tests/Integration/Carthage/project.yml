@@ -8,7 +8,7 @@ targets:
     deploymentTarget: "13.2"
     sources: [Sources]
     dependencies:
-      - framework: Carthage/Build/iOS/MapboxCommon.framework
+      - framework: Carthage/Build/MapboxCommon.xcframework
       - sdk: libc++.tbd
     settings:
         DEVELOPMENT_TEAM: "GJZR2MEM28"
