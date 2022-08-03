@@ -5,8 +5,8 @@ import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-let version = "22.1.0"
-let checksum = "96d4e274991faba402d98ae94bcdf9624e0d3d98d3d62f2847d06e43906eb5b9"
+let version = "22.1.1"
+let checksum = "893c7d0a7f5f7fcf32018c35da1e945ab2896756b13309646e505a1dc9b1c271"
 
 let package = Package(
     name: "MapboxCommon",
@@ -34,16 +34,16 @@ struct SDKRegistry {
 
     func binaryTarget(name: String, version: String, path: String, filename: String, checksum: String) -> Target {
         var url = "https://\(host)/downloads/v2/\(path)/releases/ios/packages/\(version)/\(filename)"
-        
+
         if let token = netrcToken {
             url += "?access_token=\(token)"
         } else {
             debugPrint("Mapbox token wasn't founded in ~/.netrc. Fix this issue to integrate Mapbox SDK. Otherwise, you will see 'invalid status code 401' or 'no XCFramework found. To clean issue in Xcode, remove ~/Library/Developer/Xcode/DerivedData folder")
         }
-        
+
         return .binaryTarget(name: name, url: url, checksum: checksum)
     }
-    
+
     var netrcToken: String? {
         var mapboxToken: String?
         do {
@@ -52,7 +52,7 @@ struct SDKRegistry {
         } catch {
             // Do nothing on client machines
         }
-        
+
         return mapboxToken
     }
 }
