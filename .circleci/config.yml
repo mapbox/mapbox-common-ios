@@ -6,7 +6,7 @@ workflows:
         jobs:
             - macos-job:
                 name: SPM
-                xcode: "12.0.0" # Required for using binary frameworks with SPM
+                xcode: "12.5.1" # Required for using binary frameworks with SPM
                 spm: true
             - macos-job:
                 name: Carthage
@@ -20,7 +20,7 @@ jobs:
         parameters:
             xcode:
                 type: string
-                default: "11.5.0"
+                default: "12.5.1"
             cocoapods:
                 type: boolean
                 default: false
