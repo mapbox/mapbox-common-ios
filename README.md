@@ -52,7 +52,7 @@ pod 'MapboxCommon', '22.1.1'
 Add the following code to your Cartfile.
 
 ```bash
-binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon-ios.json" == 22.1.1
+binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" == 22.1.1
 ```
 
 Then run the following command in the Terminal.
