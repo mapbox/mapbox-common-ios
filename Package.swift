@@ -5,8 +5,8 @@ import PackageDescription
 import Foundation
 
 let registry = SDKRegistry()
-let version = "23.0.0-rc.1"
-let checksum = "28b677d236a113e6f567ccb43d7f91f785ca1d42e1ecef6aa378ccc11533cdca"
+let version = "23.0.0-beta.2"
+let checksum = "5f7609dfdc733bc6b0be20a908e1a6dd8ae7081c74bf3dd499e83369db13fb34"
 
 let package = Package(
     name: "MapboxCommon",
