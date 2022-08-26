@@ -38,13 +38,13 @@ machine api.mapbox.com
 ###### Using SPM Package 📱🖥💻
 
 ```swift
-.package(url: "https://github.com/mapbox/mapbox-common-ios.git", from: "22.1.1"),
+.package(url: "https://github.com/mapbox/mapbox-common-ios.git", from: "1.1.2"),
 ```
 
 ##### CocoaPods 📱🖥💻
 
 ```ruby
-pod 'MapboxCommon', '22.1.1'
+pod 'MapboxCommon', '1.1.2'
 ```
 
 ##### Carthage 📱
@@ -52,7 +52,7 @@ pod 'MapboxCommon', '22.1.1'
 Add the following code to your Cartfile.
 
 ```bash
-binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" == 22.1.1
+binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" == 1.1.2
 ```
 
 Then run the following command in the Terminal.
