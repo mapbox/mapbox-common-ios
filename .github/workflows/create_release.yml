@@ -1,0 +1,11 @@
+on:
+  push:
+    branches:
+      - 'test'
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get color
+        run: echo "run hello world"
