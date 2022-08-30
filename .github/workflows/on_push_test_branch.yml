@@ -2,7 +2,7 @@ name: hello-world
 on:
   pull_request:
     types: [closed]
-  branches:
+    branches:
       - test
 jobs:
   my-job:
