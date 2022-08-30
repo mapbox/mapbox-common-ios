@@ -1,11 +1,9 @@
-on:
-  push:
-    branches:
-      - 'test'
+name: hello-world
+on: push
 jobs:
-  build:
-    name: Create Release
+  my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: Get color
-        run: echo "run hello world"
+      - name: my-step
+        run: echo "Hello World!"
+
