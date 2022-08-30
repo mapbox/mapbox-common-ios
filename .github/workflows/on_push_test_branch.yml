@@ -1,9 +1,14 @@
 name: hello-world
-on: push
+on:
+  pull_request:
+    types: [closed]
+  branches:
+      - test
 jobs:
   my-job:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: my-step
-        run: echo "Hello World test!"
+        run: echo "Hello World test ${{ github.event.pull_request.title }}!"
 
