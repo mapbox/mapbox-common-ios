@@ -1,7 +1,7 @@
 name: hello-world
 on:
   pull_request:
-    types: [closed]
+    types: opened
 
 jobs:
   my-job:
