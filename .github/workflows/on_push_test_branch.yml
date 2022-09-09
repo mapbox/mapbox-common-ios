@@ -10,4 +10,6 @@ jobs:
     steps:
       - name: my-step
         run: echo "Hello World test ${{ github.event.pull_request.title }}!"
+      - name: Approve Pull Request
+        run: echo "Hello World test ${{ github.event.pull_request.url }}!"
 
