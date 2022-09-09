@@ -23,17 +23,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    # Step 1:1 - This step downloads a private mapbox github action which will be needed in the next step 
-    - name: download private action
-      uses: actions/checkout@v2
-      with:
-        # Private version of https://github.com/jitterbit/await-check-suites
-        # See internal documentation here https://github.com/mapbox/await-check-suites-internal/blob/master/README.md
-        repository: mapbox/await-check-suites-internal
-        ref: v1.1.0
-        token: ${{ secrets.GITHUB_TOKEN }} 
+    # # Step 1:1 - This step downloads a private mapbox github action which will be needed in the next step 
+    # - name: download private action
+    #   uses: actions/checkout@v2
+    #   with:
+    #     # Private version of https://github.com/jitterbit/await-check-suites
+    #     # See internal documentation here https://github.com/mapbox/await-check-suites-internal/blob/master/README.md
+    #     repository: mapbox/await-check-suites-internal
+    #     ref: v1.1.0
+    #     token: ${{ secrets.GITHUB_TOKEN }} 
     - name: check artifacts complete
-      uses: ./
+      uses: jitterbit/await-check-suites@v1
       with:
         waitForACheckSuite: 'true'
         intervalSeconds: '10'
