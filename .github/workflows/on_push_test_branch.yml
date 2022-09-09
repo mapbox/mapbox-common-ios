@@ -5,7 +5,7 @@ on:
 
 jobs:
   my-job:
-    # if: github.event.pull_request.merged == true
+    if: startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-')
     runs-on: ubuntu-latest
     steps:
       - name: my-step
