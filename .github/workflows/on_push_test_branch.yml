@@ -2,8 +2,7 @@ name: hello-world
 on:
   pull_request:
     types: [closed]
-    branches:
-      - test
+
 jobs:
   my-job:
     # if: github.event.pull_request.merged == true
