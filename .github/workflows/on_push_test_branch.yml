@@ -39,4 +39,5 @@ jobs:
         intervalSeconds: '10'
         timeoutSeconds: '300'
         failStepIfUnsuccessful: 'true'
+        appSlugFilter: 'ci/circleci'
         token: ${{ secrets.GITHUB_TOKEN }}
