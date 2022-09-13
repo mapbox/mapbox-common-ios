@@ -8,6 +8,9 @@ jobs:
     # if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-')
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: my-step
         run: gh release create v1.2.3 --notes "Bump to v23.0.0" --title "Release-v23.0.0" --target "${{github.head_ref}}"
         env:
