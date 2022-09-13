@@ -1,0 +1,21 @@
+name: goodbye-world
+on:
+  pull_request:
+    types: closed
+
+jobs:
+  my-job:
+    # if: startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "Hello World test ${{ github.event.pull_request.title }}!"
+      # - name: Approve Pull Request
+      #   run: echo "Hello World test ${{ github.event.pull_request.url }}!"
+      # - name: Approve Pull Request
+      #   run: echo "Hello World test ${{ github.event.pull_request.url }}! ${{ github.event.pull_request.user.login }} ${{ github.event.pull_request.user.id }}"
+      # - name: Approve Pull Request
+      #   run: gh pr review $PR --approve
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     PR: ${{ github.event.pull_request.html_url }}
