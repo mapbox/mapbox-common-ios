@@ -19,25 +19,29 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
-  await-check-suites: 
-    runs-on: ubuntu-latest
+  
+# on:
+#   pull_request:
+#     types: closed
+  # await-check-suites: 
+  #   runs-on: ubuntu-latest
     
-    steps:
-    # Step 1:1 - This step downloads a private mapbox github action which will be needed in the next step 
-    - name: download private action
-      uses: actions/checkout@v2
-      with:
-        # Private version of https://github.com/jitterbit/await-check-suites
-        # See internal documentation here https://github.com/mapbox/await-check-suites-internal/blob/master/README.md
-        repository: jitterbit/await-check-suites
-        ref: v1
-        token: ${{ secrets.GITHUB_TOKEN }} 
-    - name: check artifacts complete
-      uses: ./
-      with:
-        waitForACheckSuite: 'true'
-        intervalSeconds: '10'
-        timeoutSeconds: '300'
-        failStepIfUnsuccessful: 'true'
-        appSlugFilter: 'ci/circleci'
-        token: ${{ secrets.GITHUB_TOKEN }}
+  #   steps:
+  #   # Step 1:1 - This step downloads a private mapbox github action which will be needed in the next step 
+  #   - name: download private action
+  #     uses: actions/checkout@v2
+  #     with:
+  #       # Private version of https://github.com/jitterbit/await-check-suites
+  #       # See internal documentation here https://github.com/mapbox/await-check-suites-internal/blob/master/README.md
+  #       repository: jitterbit/await-check-suites
+  #       ref: v1
+  #       token: ${{ secrets.GITHUB_TOKEN }} 
+  #   - name: check artifacts complete
+  #     uses: ./
+  #     with:
+  #       waitForACheckSuite: 'true'
+  #       intervalSeconds: '10'
+  #       timeoutSeconds: '300'
+  #       failStepIfUnsuccessful: 'true'
+  #       appSlugFilter: 'ci/circleci'
+  #       token: ${{ secrets.GITHUB_TOKEN }}
