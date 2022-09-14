@@ -15,6 +15,7 @@ jobs:
       - name: my-step
         run: |
           echo "${{github.event.pull_request.merged}}"
+          echo "${{github.base_ref}}"
           VERSION=$(echo "${{github.head_ref}}" | sed "s/^release-//")
           gh release create $VERSION --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${{github.head_ref}}"
         env:
