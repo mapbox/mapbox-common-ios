@@ -1,4 +1,4 @@
-name: goodbye-world
+name: Create new release
 on:
   pull_request:
     types: closed
@@ -7,7 +7,7 @@ jobs:
   my-job:
     if: |
       startsWith(github.head_ref, 'release-v') &&
-      startsWith(github.base_ref, 'test') &&
+      startsWith(github.base_ref, 'main') &&
       github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +20,3 @@ jobs:
           gh release create $VERSION --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${{github.head_ref}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ github.event.pull_request.html_url }}
