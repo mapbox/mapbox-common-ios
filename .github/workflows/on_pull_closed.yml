@@ -5,8 +5,7 @@ on:
 
 jobs:
   my-job:
-# github.event.pull_request.merged == true && 
-    if: startsWith(github.head_ref, 'release-v') && startsWith(github.base_ref, 'test')
+    if: startsWith(github.head_ref, 'release-v') && startsWith(github.base_ref, 'test') && github.event.pull_request.merged
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
