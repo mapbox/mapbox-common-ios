@@ -5,14 +5,18 @@ on:
 
 jobs:
   my-job:
-    # if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-')
+# github.event.pull_request.merged == true && 
+    if: startsWith(github.head_ref, 'release-v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: my-step
-        run: gh release create v1.2.3 --notes "Bump to v23.0.0" --title "Release-v23.0.0" --target "${{github.head_ref}}"
+        run: |
+          echo "${{github.event.pull_request.merged}}"
+          VERSION=$(echo "${{github.head_ref}}" | sed "s/^release-//")
+          gh release create $VERSION --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${{github.head_ref}}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
