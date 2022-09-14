@@ -1,0 +1,41 @@
+name: Merge release pr
+on:
+  pull_request:
+    types: opened
+
+jobs:
+  approve-release-pull-request:
+    if: |
+      startsWith(github.head_ref, 'release-v') &&
+      startsWith(github.base_ref, 'main') &&
+      startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-') &&
+      github.event.pull_request.user.id == '93400552'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Approve Pull Request
+        run: gh pr review $PR --approve
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.html_url }}
+  re-trigger-circleci-for-cocoapods:
+    if: |
+      startsWith(github.head_ref, 'release-v') &&
+      startsWith(github.base_ref, 'main') &&
+      startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-') &&
+      github.event.pull_request.user.id == '93400552'
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Rerun circleci
+        timeout-minutes: 40
+        run: |
+          # Rerun circleCI for cocoapods during 36 minutes
+          for n in {1..3};
+          do
+            curl --request POST \
+            --url https://circleci.com/api/v2/project/github/mapbox/mapbox-common-ios/pipeline \
+            --header 'Circle-Token: ${{ secrets.CCI_TOKEN }}' \
+            --header 'content-type: application/json' \
+            --data '{"branch":"${{ github.head_ref }}"}'
+            sleep 720
+          done
