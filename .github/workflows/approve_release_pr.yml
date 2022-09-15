@@ -22,9 +22,9 @@ jobs:
     steps:
       - name: Sleep then trigger
         run: |
-          sleep 30
+          sleep 10
       - name: Trigger workflow
-        uses: circleci/trigger_circleci_pipeline@v1.0
+        uses: CircleCI-Public/trigger-circleci-pipeline-action@v1.0
         env:
           CCI_TOKEN: $
 
