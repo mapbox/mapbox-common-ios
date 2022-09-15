@@ -5,11 +5,6 @@ on:
 
 jobs:
   approve-release-pull-request:
-    if: |
-      startsWith(github.head_ref, 'release-v') &&
-      startsWith(github.base_ref, 'main') &&
-      startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-') &&
-      github.event.pull_request.user.id == '93400552'
     runs-on: ubuntu-latest
     steps:
       - name: Approve Pull Request
