@@ -8,8 +8,8 @@ jobs:
     if: |
       startsWith(github.head_ref, 'release-v') &&
       startsWith(github.base_ref, 'main') &&
-      startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-') &&
-      github.event.pull_request.user.id == '93400552'
+      github.event.pull_request.user.login == '${{ secrets.RELEASE_BOT_NAME }}' &&
+      github.event.pull_request.user.id == '${{ secrets.RELEASE_BOT_ID }}'
     runs-on: ubuntu-latest
     steps:
       - name: Approve Pull Request
@@ -21,8 +21,8 @@ jobs:
     if: |
       startsWith(github.head_ref, 'release-v') &&
       startsWith(github.base_ref, 'main') &&
-      startsWith(github.event.pull_request.user.login, 'mapbox-github-ci-writer-public-') &&
-      github.event.pull_request.user.id == '93400552'
+      github.event.pull_request.user.login == '${{ secrets.RELEASE_BOT_NAME }}' &&
+      github.event.pull_request.user.id == '${{ secrets.RELEASE_BOT_ID }}'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
