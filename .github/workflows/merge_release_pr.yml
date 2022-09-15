@@ -32,7 +32,7 @@ jobs:
             --header 'Circle-Token: ${{ secrets.CCI_TOKEN }}' \
             --header 'content-type: application/json' \
             --data '{"branch":"${{ github.head_ref }}"}'
-            sleep 540
+            sleep 30
           done
           
 
