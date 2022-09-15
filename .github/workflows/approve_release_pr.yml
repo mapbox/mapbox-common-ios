@@ -17,4 +17,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.html_url }}
+  trigger-circleci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sleep then trigger
+        run: |
+          sleep 30
+      - name: Trigger workflow
+        uses: circleci/trigger_circleci_pipeline@v1.0
+        env:
+          CCI_TOKEN: $
 
