@@ -6,6 +6,6 @@ ROOT_DIR="${DIR}/../.."
 pushd "${ROOT_DIR}/Tests/Integration/SPM"
 
 xcodegen generate
-xcodebuild -project SPMTest.xcodeproj -scheme SPMTest -scmProvider system -destination 'platform=iOS Simulator,name=iPhone 11,OS=latest' build
+xcodebuild -project SPMTest.xcodeproj -scheme SPMTest -scmProvider system -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' build
 
 popd
