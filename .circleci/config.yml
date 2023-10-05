@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+    slack: circleci/slack@4.12.1
+
 workflows:
     version: 2
     default:
@@ -14,6 +17,14 @@ workflows:
             - macos-job:
                 name: CocoaPods
                 cocoapods: true
+    notify_release:
+        jobs:
+        - notify_release:
+            filters:
+                tags:
+                    only: /^v.*/
+                branches:
+                    ignore: /.*/
 
 jobs:
     macos-job:
@@ -79,3 +90,22 @@ jobs:
                   - run:
                       name: Verify LICENSE.md is up-to-date
                       command: ./scripts/release/check-license.sh
+    notify_release:
+        machine:
+            image: ubuntu-2004:202010-01
+        steps:
+            - slack/notify:
+                channel: sdk-releases
+                event: pass
+                custom: |
+                    {
+                        "blocks": [
+                            {
+                                "type": "section",
+                                "text": {
+                                    "type": "mrkdwn",
+                                    "text": "Common SDK <https://github.com/mapbox/mapbox-sdk-common/releases/tag/$CIRCLE_TAG | $CIRCLE_TAG> has been released. cc @gl-native-team @maps-android @maps-ios"
+                                }
+                            }
+                        ]
+                    }
