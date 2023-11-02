@@ -61,8 +61,8 @@ struct MarketingVersion: ParsableCommand {
 
     func runSPMVersionUpdate() throws {
         let spmManifestURL = projectPathURL.appendingPathComponent("Tests/Integration/SPM/project.yml")
-        try replaceLineContaining("branch: release-v",
-                                  with: "    branch: release-v\(marketingVersion)",
+        try replaceLineContaining("branch: release/v",
+                                  with: "    branch: release/v\(marketingVersion)",
                                   in: spmManifestURL)
         let spmPackageURL = projectPathURL.appendingPathComponent("Package.swift")
         try replaceLineContaining("let version =",
