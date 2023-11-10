@@ -7,6 +7,7 @@ set -eo pipefail
 AUTHOR="Release SDK bot for Core SDK team <core-sdk-team@mapbox.com>"
 MESSAGE="Update LICENSE.md"
 BRANCH_NAME=`git rev-parse --abbrev-ref HEAD`
+GITHUB_TOKEN=$(mbx-ci github writer public token)
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ROOT_DIR="${DIR}/../.."
@@ -30,7 +31,7 @@ if [[ $STATUS -ne 0 ]]; then  # if status isn't equal to 0, then execute code
     echo "LICENSE.md in the binary and inside this repository doesn't match."
     git add ${ROOT_DIR}/LICENSE.md
     git commit --author="$AUTHOR" -m "$MESSAGE"
-    git push origin $BRANCH_NAME
+    git push https://x-access-token:$GITHUB_TOKEN@github.com/mapbox/mapbox-common-ios/tree/$BRANCH_NAME
     rm -rf "${ROOT_DIR}/LICENSE.md.old"
     exit 0
 else
