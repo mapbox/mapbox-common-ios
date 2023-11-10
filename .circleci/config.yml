@@ -45,6 +45,9 @@ jobs:
             xcode: << parameters.xcode >>
         environment:
             HOMEBREW_NO_AUTO_UPDATE: 1
+            # Grab latest environment variable at
+            # https://platform.mapbox.com/developer-experience/ci-systems/reference/mbx-ci/#setup-authentication-1
+            MBX_CI_DOMAIN: o619qyc20d.execute-api.us-east-1.amazonaws.com
         steps:
             - checkout
             - run:
