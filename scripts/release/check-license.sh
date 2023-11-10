@@ -30,8 +30,11 @@ STATUS="$(cmp --silent $OLD_LICENSE $NEW_LICENSE; echo $?)"
 if [[ $STATUS -ne 0 ]]; then  # if status isn't equal to 0, then execute code
     echo "LICENSE.md in the binary and inside this repository doesn't match."
     git add ${ROOT_DIR}/LICENSE.md
+    echo "committing license"
     git commit --author="$AUTHOR" -m "$MESSAGE"
+    echo "pushing commit"
     git push https://x-access-token:$GITHUB_TOKEN@github.com/mapbox/mapbox-common-ios/tree/$BRANCH_NAME
+    echo "removing old license"
     rm -rf "${ROOT_DIR}/LICENSE.md.old"
     exit 0
 else
