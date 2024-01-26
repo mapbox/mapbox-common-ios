@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.7
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -9,7 +9,7 @@ let checksum = "36c726f861d12c5c86327a6d1e61c9d2cd246888382f8f17faa68904e92bb8e8
 
 let package = Package(
     name: "MapboxCommon",
-    platforms: [.iOS(.v10), .macOS(.v10_15)],
+    platforms: [.iOS(.v10), .macOS(.v10_15), .custom("visionOS", versionString: "1.0")],
     products: [
         .library(
             name: "MapboxCommon",
