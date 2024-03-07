@@ -1,0 +1,5 @@
+* @mapbox/core-sdk
+Package.swift
+README.md
+Tests/Integration/Carthage/Cartfile
+Tests/Integration/CocoaPods/Podfile
