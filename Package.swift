@@ -9,7 +9,7 @@ let checksum = "69041691b99e90f374d65b3302dec8e4076658b5babc78fb17f19fc5111a438c
 
 let package = Package(
     name: "MapboxCommon",
-    platforms: [.iOS(.v12), .macOS(.v10_15), .custom("visionos", versionString: "1.0")],
+    platforms: [.iOS(.v10), .macOS(.v10_15)],
     products: [
         .library(
             name: "MapboxCommon",
