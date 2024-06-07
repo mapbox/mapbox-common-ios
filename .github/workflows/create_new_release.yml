@@ -18,8 +18,7 @@ jobs:
           fetch-depth: 0
       - name: Create release
         run: |
-          VERSION=$(echo "${GITHUB_REF}" | sed -E "s/^release[\/-]//")
-          gh release create $VERSION --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${GITHUB_REF}"
+          VERSION=$(echo "${GITHUB_HEAD_REF}" | sed -E "s/^release[\/-]//")
+          gh release create $VERSION --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${GITHUB_HEAD_REF}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REF: ${{github.head_ref}}
