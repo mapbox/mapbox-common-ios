@@ -104,7 +104,7 @@ jobs:
                                 "type": "section",
                                 "text": {
                                     "type": "mrkdwn",
-                                    "text": "Common SDK <https://github.com/mapbox/mapbox-sdk-common/releases/tag/$CIRCLE_TAG | $CIRCLE_TAG> has been released. cc @gl-native-team @maps-android @maps-ios"
+                                    "text": "Common SDK <https://github.com/mapbox/mapbox-sdk-common/releases/tag/$CIRCLE_TAG | $CIRCLE_TAG> has been released. cc @gl-native-team @maps-android @maps-ios @search-sdk-team"
                                 }
                             }
                         ]
