@@ -1,5 +1,5 @@
 platform :ios, '11.0'
 
 target 'PodInstall' do
-  pod 'MapboxCommon', '24.7.0-daily-2024-08-22-04-28'
+  pod 'MapboxCommon', '24.7.0-daily-2024-08-22-08-54'
 end
