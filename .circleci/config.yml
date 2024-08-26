@@ -25,9 +25,9 @@ workflows:
                     only: /(?!.*\bdaily\b)^v.*/
                 branches:
                     ignore: /.*/
-    notify_daily_release:
+    notify_release_daily:
         jobs:
-        - notify_daily_release:
+        - notify_release_daily:
             filters:
                 tags:
                     only: /^v.*daily.*/
