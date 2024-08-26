@@ -101,7 +101,7 @@ jobs:
                       command: ./scripts/release/check-license.sh
     notify_release:
         machine:
-            image: ubuntu-2004:202010-01
+            image: cimg/base:stable
         steps:
             - slack/notify:
                 channel: sdk-releases
@@ -120,7 +120,7 @@ jobs:
                     }
     notify_release_daily:
         machine:
-            image: ubuntu-2004:202010-01
+            image: cimg/base:stable
         steps:
             - slack/notify:
                 channel: sdk-releases
