@@ -100,8 +100,9 @@ jobs:
                       name: Verify LICENSE.md is up-to-date
                       command: ./scripts/release/check-license.sh
     notify_release:
-        machine:
-            image: cimg/base:stable
+        docker:
+            - image: cimg/base:stable
+        resource_class: small
         steps:
             - slack/notify:
                 channel: sdk-releases
@@ -119,8 +120,9 @@ jobs:
                         ]
                     }
     notify_release_daily:
-        machine:
-            image: cimg/base:stable
+        docker:
+            - image: cimg/base:stable
+        resource_class: small
         steps:
             - slack/notify:
                 channel: sdk-releases
