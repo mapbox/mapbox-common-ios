@@ -4,8 +4,8 @@
 import PackageDescription
 import Foundation
 
-let version = "24.7.0-rc.2"
-let checksum = "ad1ba5342a5224c595a771f6d989bf60c72808ff3b74f576768cddec12b83022"
+let version = "24.8.0-daily-2024-09-18-10-47"
+let checksum = "08836960caddfabd3a26e58bcc6f75e2081b4c892b2f2e7fcf6a55e1ec70c18f"
 
 let package = Package(
     name: "MapboxCommon",
