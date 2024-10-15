@@ -7,6 +7,8 @@ import Foundation
 let version = "24.9.0-daily-2024-10-11-04-26"
 let checksum = "787a7d772d16b60c49f8370159e39f13dc23d7910ea40f322e6f31dda43107f7"
 
+let turfVersion = "3.0.0"
+
 let package = Package(
     name: "MapboxCommon",
     platforms: [.iOS(.v12), .macOS(.v10_15), .custom("visionos", versionString: "1.0")],
@@ -15,6 +17,9 @@ let package = Package(
             name: "MapboxCommon",
             targets: ["MapboxCommon"]
         )
+    ],
+    dependencies: [
+        .package(url: "https://github.com/mapbox/turf-swift.git", exact: "\(turfVersion)"),
     ],
     targets: [
         .binaryTarget(
