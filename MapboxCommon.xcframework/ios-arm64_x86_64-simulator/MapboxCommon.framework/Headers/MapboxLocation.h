@@ -1,0 +1,17 @@
+// This file is generated and will be overwritten automatically.
+
+#import "MBXLocationErrorCode.h"
+#import "MBXAccuracyAuthorization.h"
+#import "MBXPermissionStatus.h"
+#import "MBXAccuracyLevel.h"
+#import "MBXLocation.h"
+#import "MBXLocationError.h"
+#import "MBXIntervalSettings.h"
+#import "MBXLocationProviderRequest.h"
+#import "MBXLocationServiceFactory.h"
+#import "MBXLocationServiceObserver.h"
+#import "MBXLocationObserver.h"
+#import "MBXLocationProvider.h"
+#import "MBXDeviceLocationProvider.h"
+#import "MBXGetLocationCallback.h"
+#import "MBXLocationExtraKeys.h"
