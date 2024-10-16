@@ -4,27 +4,36 @@
 import PackageDescription
 import Foundation
 
-let version = "24.9.0-daily-2024-10-16-04-26"
-let checksum = "bd443c4c695dfacbc82731e25ba50bbc086afa6c7967043f134f994c8b758c82"
+let commonVersion = "0.0.0-beta.1"
+let commonChecksum = "some"
+
+let turfVersion = "3.0.0"
+let turfChecksum = "some_shecksum"
 
 let package = Package(
     name: "MapboxCommon",
     platforms: [.iOS(.v12), .macOS(.v10_15), .custom("visionos", versionString: "1.0")],
     products: [
-        .library(
-            name: "MapboxCommon",
-            targets: ["MapboxCommon"]
-        )
+        .library(name: "MapboxCommon", targets: ["MapboxCommonWrapper"])
     ],
     targets: [
+        .target(name: "MapboxCommonWrapper", dependencies: [
+            .target(name: "Turf"),
+            .target(name: "MapboxCommonBinary")
+        ]),
         .binaryTarget(
             name: "MapboxCommon",
-            url: "https://api.mapbox.com/downloads/v2/mapbox-common/releases/ios/packages/\(version)/MapboxCommon.zip",
-            checksum: checksum
+            url: "https://api.mapbox.com/downloads/v2/mapbox-common/releases/ios/packages/\(commonChecksum)/MapboxCommon.zip",
+            checksum: commonChecksum
+        ),
+        .binaryTarget(
+            name: "Turf",
+            url: "https://github.com/mapbox/turf-swift/releases/download/v\(turfVersion)/Turf.xcframework.zip",
+            checksum: turfChecksum
         ),
         .testTarget(
             name: "MapboxCommonTests",
-            dependencies: ["MapboxCommon"]
+            dependencies: ["MapboxCommonWrapper"]
         )
     ],
     cxxLanguageStandard: .cxx17
