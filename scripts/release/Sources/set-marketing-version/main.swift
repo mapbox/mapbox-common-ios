@@ -19,8 +19,14 @@ extension String {
 let fm = FileManager.default
 
 struct MarketingVersion: ParsableCommand {
-    @Argument(help: "The new marketing version.")
+    @Option(help: "The new marketing version.")
     var marketingVersion: String
+
+    @Option(help: "Checksum")
+    var checksum: String
+
+     @Option(help: "Turf version")
+    var turfVersion: String
 
     var projectPathURL: URL {
         let currentDirectoryURL = URL(fileURLWithPath: fm.currentDirectoryPath)
@@ -54,9 +60,17 @@ struct MarketingVersion: ParsableCommand {
 
     func runCarthageVersionUpdate() throws {
         let cartfileURL = projectPathURL.appendingPathComponent("Tests/Integration/Carthage/Cartfile")
+        let turfCartfileURL = projectPathURL.appendingPathComponent("Tests/Integration/Carthage/Cartfile.Turf.json")
+
         try replaceLineContaining("binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/",
                                   with: "binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json\" == \(marketingVersion)",
                                   in: cartfileURL)
+        try replaceLineContaining("binary \"Cartfile.Turf.json\"",
+                                  with: "binary \"Cartfile.Turf.json\" == \(turfVersion)",
+                                  in: cartfileURL)
+        try replaceLineContaining("{",
+                                  with: "{ \"\(turfVersion)\": \"https://github.com/mapbox/turf-swift/releases/download/v\(turfVersion)/Turf.xcframework.zip\" }",
+                                  in: turfCartfileURL)
     }
 
     func runSPMVersionUpdate() throws {
@@ -65,8 +79,11 @@ struct MarketingVersion: ParsableCommand {
                                   with: "    branch: release/v\(marketingVersion)",
                                   in: spmManifestURL)
         let spmPackageURL = projectPathURL.appendingPathComponent("Package.swift")
-        try replaceLineContaining("let version =",
-                                  with: "let version = \"\(marketingVersion)\"",
+        try replaceLineContaining("let commonVersion =",
+                                  with: "let commonVersion = \"\(marketingVersion)\"",
+                                  in: spmPackageURL)
+        try replaceLineContaining("let commonChecksum =",
+                                  with: "let commonChecksum = \"\(checksum)\"",
                                   in: spmPackageURL)
     }
 

@@ -4,35 +4,36 @@
 import PackageDescription
 import Foundation
 
+let commonVersion = "24.7.0"
+let commonChecksum = "checksum"
+
+let turfVersion = "3.1.0"
+let turfChecksum = "some_shecksum"
+
 let package = Package(
     name: "MapboxCommon",
     platforms: [.iOS(.v12), .macOS(.v10_15), .custom("visionos", versionString: "1.0")],
     products: [
-        .library(
-            name: "MapboxCommon",
-            targets: ["MapboxCommon"]
-        )
+        .library(name: "MapboxCommon", targets: ["MapboxCommonWrapper"])
     ],
     targets: [
-        .target(
+        .target(name: "MapboxCommonWrapper", dependencies: [
+            .target(name: "Turf"),
+            .target(name: "MapboxCommon")
+        ]),
+        .binaryTarget(
             name: "MapboxCommon",
-            dependencies: [
-                .target(name: "Turf"),
-                .target(name: "MapboxCommonBinary")
-            ]
+            url: "https://api.mapbox.com/downloads/v2/mapbox-common/releases/ios/packages/\(commonChecksum)/MapboxCommon.zip",
+            checksum: commonChecksum
         ),
         .binaryTarget(
-            name: "MapboxCommonBinary",
-            path: "MapboxCommon.xcframework"
+            name: "Turf",
+            url: "https://github.com/mapbox/turf-swift/releases/download/v\(turfVersion)/Turf.xcframework.zip",
+            checksum: turfChecksum
         ),
-         .binaryTarget(
-             name: "Turf",
-             url: "https://github.com/mapbox/turf-swift/releases/download/v3.0.0/Turf.xcframework.zip",
-             checksum: "02336281934edee0bf6cda4cc54a1e96b589279af6031ff9646fe65b17ea67cf"
-         ),
         .testTarget(
             name: "MapboxCommonTests",
-            dependencies: ["MapboxCommon"]
+            dependencies: ["MapboxCommonWrapper"]
         )
     ],
     cxxLanguageStandard: .cxx17
