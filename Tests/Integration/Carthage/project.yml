@@ -6,9 +6,12 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: "13.2"
-    sources: [Sources]
+    sources: 
+      - path: Sources
+        excludes: [Info.plist]
     dependencies:
       - framework: Carthage/Build/MapboxCommon.xcframework
+      - framework: Carthage/Build/Turf.xcframework
       - sdk: libc++.tbd
     settings:
         DEVELOPMENT_TEAM: "GJZR2MEM28"
