@@ -15,7 +15,6 @@ let package = Package(
     platforms: [.iOS(.v12), .macOS(.v10_15), .custom("visionos", versionString: "1.0")],
     products: [
         .library(name: "MapboxCommon", targets: ["MapboxCommonWrapper"]),
-        .library(name: "TurfBinary", targets: ["TurfBinary"])
     ],
     dependencies: [
         .package(url: "https://github.com/mapbox/turf-swift.git", exact: turfVersion)
@@ -34,11 +33,6 @@ let package = Package(
             name: "MapboxCommonTests",
             dependencies: ["MapboxCommonWrapper"]
         ),
-        .binaryTarget(
-            name: "TurfBinary",
-            url: "https://github.com/mapbox/turf-swift/releases/download/v\(turfVersion)/Turf.xcframework.zip",
-            checksum: turfChecksum
-        )
     ],
     cxxLanguageStandard: .cxx17
 )
