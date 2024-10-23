@@ -1,0 +1,91 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MapboxCommon
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import CoreLocation
+import Foundation
+@_exported import MapboxCommon
+import Swift
+import Turf
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+extension MapboxCommon.MapboxOptions {
+  public static var accessToken: Swift.String {
+    get
+    set
+  }
+}
+extension MapboxCommon.NSExceptionHandler {
+  @discardableResult
+  public static func `try`<T>(callback: () throws -> T) throws -> T
+}
+extension MapboxCommon.Location {
+  convenience public init(coordinate: CoreLocation.CLLocationCoordinate2D, timestamp: Foundation.Date = Date(), altitude: CoreLocation.CLLocationDistance? = nil, horizontalAccuracy: CoreLocation.CLLocationAccuracy? = nil, verticalAccuracy: CoreLocation.CLLocationAccuracy? = nil, speed: CoreLocation.CLLocationSpeed? = nil, speedAccuracy: CoreLocation.CLLocationSpeedAccuracy? = nil, bearing: CoreLocation.CLLocationDirection? = nil, bearingAccuracy: CoreLocation.CLLocationDirectionAccuracy? = nil, floor: Swift.Int? = nil, source: Swift.String? = nil, extra: Any? = nil)
+  public var coordinate: CoreLocation.CLLocationCoordinate2D {
+    get
+  }
+  public var timestamp: Foundation.Date {
+    get
+  }
+  public var altitude: CoreLocation.CLLocationDistance? {
+    get
+  }
+  public var horizontalAccuracy: CoreLocation.CLLocationAccuracy? {
+    get
+  }
+  public var verticalAccuracy: CoreLocation.CLLocationAccuracy? {
+    get
+  }
+  public var speed: CoreLocation.CLLocationSpeed? {
+    get
+  }
+  public var speedAccuracy: CoreLocation.CLLocationSpeedAccuracy? {
+    get
+  }
+  public var bearing: CoreLocation.CLLocationDirection? {
+    get
+  }
+  public var bearingAccuracy: CoreLocation.CLLocationDirectionAccuracy? {
+    get
+  }
+  public var floor: Swift.Int? {
+    get
+  }
+}
+extension MapboxCommon.HttpRequestError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension MapboxCommon.HttpResponse {
+  convenience public init(identifier: Swift.UInt64, request: MapboxCommon.HttpRequest, result: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError>)
+  public var result: Swift.Result<MapboxCommon.HttpResponseData, MapboxCommon.HttpRequestError> {
+    get
+  }
+}
+public struct SettingsServiceError : Swift.Equatable, Swift.Error {
+  public init(description: Swift.String)
+  public static func == (a: MapboxCommon.SettingsServiceError, b: MapboxCommon.SettingsServiceError) -> Swift.Bool
+}
+extension MapboxCommon.SettingsServiceError : Foundation.LocalizedError {
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension MapboxCommon.SettingsService {
+  public func set<T>(key: Swift.String, value: T) -> Swift.Result<Swift.Void, MapboxCommon.SettingsServiceError>
+  public func get<T>(key: Swift.String, type: T.Type) -> Swift.Result<T, MapboxCommon.SettingsServiceError>
+  public func get<T>(key: Swift.String, type: T.Type, defaultValue: T) -> Swift.Result<T, MapboxCommon.SettingsServiceError>
+  public func erase(key: Swift.String) -> Swift.Result<Swift.Void, MapboxCommon.SettingsServiceError>
+  public func has(key: Swift.String) -> Swift.Result<Swift.Bool, MapboxCommon.SettingsServiceError>
+}
+extension MapboxCommon.SettingsServiceFactory {
+  public static func getInstance(storageType: MapboxCommon.SettingsServiceStorageType) -> MapboxCommon.SettingsService
+}
+@_hasMissingDesignatedInitializers @objc(MBXDataRef) @objcMembers public class DataRef : ObjectiveC.NSObject {
+  @objc final public let data: Foundation.Data
+  @objc public init(data: Foundation.Data)
+  @objc deinit
+}

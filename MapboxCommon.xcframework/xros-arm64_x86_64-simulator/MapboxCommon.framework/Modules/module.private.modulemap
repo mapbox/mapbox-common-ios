@@ -1,0 +1,6 @@
+framework module MapboxCommon_Private {
+  umbrella header "MapboxCommon_Internal.h"
+
+  export *
+  module * { export * }
+}
