@@ -22,7 +22,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "MapboxCommonWrapper", dependencies: [
-            .target(name: "TurfBinary"),
+            .product(name: "Turf", package: "turf-swift"),
             .target(name: "MapboxCommon")
         ]),
         /// Revert to download from storage
