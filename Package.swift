@@ -15,11 +15,13 @@ let package = Package(
     platforms: [.iOS(.v12), .macOS(.v10_15), .custom("visionos", versionString: "1.0")],
     products: [
         .library(name: "MapboxCommon", targets: ["MapboxCommonWrapper"]),
-        .library(name: "TurfXCFramework", targets: ["TurfXCFramework"])
+    ],
+    dependencies: [
+        .package(url: "https://github.com/mapbox/turf-swift.git", branch: "sapial/dynamic-turf/0")
     ],
     targets: [
         .target(name: "MapboxCommonWrapper", dependencies: [
-            .target(name: "TurfXCFramework"),
+            .product(name: "Turf", package: "turf-swift"),
             .target(name: "MapboxCommon")
         ]),
         /// Revert to download from storage
@@ -31,11 +33,6 @@ let package = Package(
             name: "MapboxCommonTests",
             dependencies: ["MapboxCommonWrapper"]
         ),
-        .binaryTarget(
-            name: "TurfXCFramework",
-            url: "https://github.com/mapbox/turf-swift/releases/download/v\(turfVersion)/Turf.xcframework.zip",
-            checksum: turfChecksum
-        )
     ],
     cxxLanguageStandard: .cxx17
 )
