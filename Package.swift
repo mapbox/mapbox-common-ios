@@ -17,7 +17,7 @@ let package = Package(
         .library(name: "MapboxCommon", targets: ["MapboxCommonWrapper"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/mapbox/turf-swift.git", branch: "sapial/dynamic-turf/0")
+        .package(url: "https://github.com/mapbox/turf-swift.git", branch: "main")
     ],
     targets: [
         .target(name: "MapboxCommonWrapper", dependencies: [
