@@ -52,13 +52,6 @@ struct MarketingVersion: ParsableCommand {
                                   in: podfileURL)
     }
 
-    func runCarthageVersionUpdate() throws {
-        let cartfileURL = projectPathURL.appendingPathComponent("Tests/Integration/Carthage/Cartfile")
-        try replaceLineContaining("binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/",
-                                  with: "binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json\" == \(marketingVersion)",
-                                  in: cartfileURL)
-    }
-
     func runSPMVersionUpdate() throws {
         let spmManifestURL = projectPathURL.appendingPathComponent("Tests/Integration/SPM/project.yml")
         try replaceLineContaining("branch: release/v",
@@ -80,15 +73,10 @@ struct MarketingVersion: ParsableCommand {
         try replaceLineContaining("pod 'MapboxCommon'",
                                   with: "pod 'MapboxCommon', '\(marketingVersion)'",
                                   in: readmeURL)
-
-        try replaceLineContaining("binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common",
-                                  with: "binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json\" == \(marketingVersion)",
-                                  in: readmeURL)
     }
 
     mutating func run() throws {
         try runCocoaPodsVersionUpdate()
-        try runCarthageVersionUpdate()
         try runSPMVersionUpdate()
 
         if isPreRelease {
