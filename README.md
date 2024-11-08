@@ -13,7 +13,7 @@ To learn more about these SDKs please visit their repos on GitHub and the docume
 Before you can download the Mapbox Common SDK, you need to create a token with `DOWNLOAD:READ` scope.
 Go to https://account.mapbox.com and click "Create token"
 
-##### SPM, CocoaPods and Carthage
+##### SPM, CocoaPods
 Insert or append the following to `~/.netrc`
 
 ```bash
@@ -45,17 +45,4 @@ machine api.mapbox.com
 
 ```ruby
 pod 'MapboxCommon', '24.8.0'
-```
-
-##### Carthage 📱
-
-Add the following code to your Cartfile.
-
-```bash
-binary "https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json" == 24.8.0
-```
-
-Then run the following command in the Terminal.
-```bash
-carthage update --platform ios --use-netrc
 ```

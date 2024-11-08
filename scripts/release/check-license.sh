@@ -9,7 +9,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ROOT_DIR="${DIR}/../.."
 pushd "${ROOT_DIR}"
 
-VERSION=`awk '/let version/{print $NF}' "${ROOT_DIR}/Package.swift"`
+VERSION=$(awk '/let commonVersion/{print $NF}' "${ROOT_DIR}/Package.swift")
 VERSION=${VERSION:1:${#VERSION}-2}
 
 curl -n "https://api.mapbox.com/downloads/v2/mapbox-common/releases/ios/packages/${VERSION}/MapboxCommon.zip" --output temp-license.zip
