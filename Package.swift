@@ -7,7 +7,7 @@ import Foundation
 let commonVersion = "24.9.0-daily-2024-11-13-04-26"
 let commonChecksum = "16deedc1d8a3bb5b0bebd3e7eb222c87056f04cd9448af21059eed4228c44153"
 
-let turfVersion = "4.0.0-beta.1"
+let turfVersion: Version = "4.0.0-beta.1"
 
 let package = Package(
     name: "MapboxCommon",
