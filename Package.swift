@@ -4,8 +4,8 @@
 import PackageDescription
 import Foundation
 
-let commonVersion = "24.9.0-fedool-document-daily-release-trigger-daily-2024-11-11-12-57"
-let commonChecksum = "66fffc775a021b4c4d933825a4d99fe897bd112cd748f75bbc0bb5fbc01402b2"
+let commonVersion = "24.9.0-daily-2024-11-12-04-26"
+let commonChecksum = "1f181d3bd350345236e4798ccb358ee3df8ecc7241789a8c695ffd2c35451927"
 
 let turfVersion = "4.0.0-beta.1"
 
