@@ -45,6 +45,13 @@ struct MarketingVersion: ParsableCommand {
         try content.write(toFile: url.path, atomically: true, encoding: .utf8)
     }
 
+    func runCarthageVersionUpdate() throws {
+        let cartfileURL = projectPathURL.appendingPathComponent("Tests/Integration/Carthage/Cartfile")
+        try replaceLineContaining("binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/",
+                                  with: "binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/MapboxCommon.json\" == \(marketingVersion)",
+                                  in: cartfileURL)
+    }
+
     func runCocoaPodsVersionUpdate() throws {
         let podfileURL = projectPathURL.appendingPathComponent("Tests/Integration/CocoaPods/Podfile")
         try replaceLineContaining("pod 'MapboxCommon'",
@@ -54,8 +61,8 @@ struct MarketingVersion: ParsableCommand {
 
     func runSPMVersionUpdate() throws {
         let spmManifestURL = projectPathURL.appendingPathComponent("Tests/Integration/SPM/project.yml")
-        try replaceLineContaining("branch: release/v",
-                                  with: "    branch: release/v\(marketingVersion)",
+        try replaceLineContaining("branch: v",
+                                  with: "    branch: v\(marketingVersion)",
                                   in: spmManifestURL)
         let spmPackageURL = projectPathURL.appendingPathComponent("Package.swift")
         try replaceLineContaining("let version =",
@@ -78,6 +85,7 @@ struct MarketingVersion: ParsableCommand {
     mutating func run() throws {
         try runCocoaPodsVersionUpdate()
         try runSPMVersionUpdate()
+        try runCarthageVersionUpdate()
 
         if isPreRelease {
             print("Not updating README.md because this is a proper release.")
