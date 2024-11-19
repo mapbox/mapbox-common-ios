@@ -4,8 +4,8 @@
 import PackageDescription
 import Foundation
 
-let commonVersion = "24.9.0-sapial-enhance-daily-flow-0-daily-2024-11-19-08-06"
-let commonChecksum = "e17857cbd5e3b3a052fc3baa591525013a7f42607996322756b7911703179f0b"
+let commonVersion = "24.9.0-sapial-enhance-daily-flow-0-daily-2024-11-19-10-25"
+let commonChecksum = "d0ea4257052f2a0a2fc13a2b4e53f04658f9083a5dddb70bd09f952995bf690b"
 
 let turfVersion: Version = "4.0.0-beta.1"
 
