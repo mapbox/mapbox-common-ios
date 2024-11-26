@@ -67,9 +67,38 @@ jobs:
                   - run:
                       name: Install Carthage
                       command: |
-                        sudo softwareupdate --install-rosetta --agree-to-license
-                        curl -OL "https://github.com/Carthage/Carthage/releases/download/0.39.1/Carthage.pkg"
-                        sudo installer -pkg Carthage.pkg -target /
+                        max_retries=3
+                        attempt=0
+                        while (( attempt < max_retries )); do
+                            ((attempt++))
+                            sudo softwareupdate --install-rosetta --agree-to-license
+                            if [[ $? -eq 0 ]]; then
+                                attempt=max_retries
+                                echo "Rosetta installed"
+                            else
+                                echo "Rosetta installation failed on attempt $attempt"
+                            fi
+
+                            sleep 1
+                        done
+
+                        attempt=0
+                        while (( attempt < max_retries )); do
+                            ((attempt++))
+                            rm -rf Carthage.pkg
+                            curl -OL "https://github.com/Carthage/Carthage/releases/download/0.39.1/Carthage.pkg"
+                            sudo installer -pkg Carthage.pkg -target /
+
+                            if [[ $? -eq 0 ]]; then
+                                attempt=max_retries
+                                echo "Carthage installed"
+                            else
+                                echo "Carthage installation failed on attempt $attempt"
+                            fi
+
+                            sleep 1
+                        done
+
                   - run:
                       name: Test Integration via Carthage
                       command: Tests/Integration/test_carthage.sh
