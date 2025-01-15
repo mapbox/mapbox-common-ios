@@ -4,7 +4,7 @@ options:
 packages:
   MapboxCommon:
     url: git@github.com:mapbox/mapbox-common-ios.git
-    branch: release/v24.10.0-daily-2025-01-14-04-26
+    branch: release/v24.10.0-daily-2025-01-15-04-26
 targets:
   SPMTest:
     type: application
