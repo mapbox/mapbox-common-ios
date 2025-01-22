@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+
+# concurrent-ruby 1.3.5 causes the following error: https://stackoverflow.com/questions/79360526/uninitialized-constant-activesupportloggerthreadsafelevellogger-nameerror
+gem 'concurrent-ruby', '1.3.4'
+
 gem 'cocoapods'
 # activesupport-7.1.0 causes the following error: https://app.circleci.com/pipelines/github/mapbox/mapbox-common-ios/698/workflows/41765281-efa2-44f7-ae02-dfeb308224f4/jobs/1891
 gem 'activesupport', '7.0.8'
