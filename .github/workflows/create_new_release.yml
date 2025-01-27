@@ -19,6 +19,11 @@ jobs:
       - name: Create release
         run: |
           VERSION=$(echo "${GITHUB_HEAD_REF}" | sed -E "s/^release[\/-]//")
-          gh release create $VERSION --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${GITHUB_HEAD_REF}"
+          MARK_PRERELEASE=""
+          if [[ $VERSION == *"-daily-"* ]]; then
+            echo "Do not mark daily releases as latest!"
+            MARK_PRERELEASE="--prerelease --latest=false"
+          fi
+          gh release create $VERSION $MARK_PRERELEASE --notes "Bump to $VERSION" --title "Release-$VERSION" --target "${GITHUB_HEAD_REF}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
