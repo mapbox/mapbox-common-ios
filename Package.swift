@@ -4,8 +4,8 @@
 import PackageDescription
 import Foundation
 
-let commonVersion = "24.10.0-daily-2025-01-29-04-26"
-let commonChecksum = "9decc03b524bd1f9772a4c392bd4edace537836a6d239ba272b2474e77344b2f"
+let commonVersion = "24.10.0-rc.1"
+let commonChecksum = "f5d8ea966be7699ad19c7b36c7873574192ba4f962b2fffc6fe965f540994a89"
 
 let turfVersion: Version = "4.0.0"
 
