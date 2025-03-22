@@ -4,8 +4,9 @@
 import PackageDescription
 import Foundation
 
-let commonVersion = "24.11.0-daily-2025-02-26-04-26"
-let commonChecksum = "1b69dfee08e1be774fde779a1eb266373c208baeb4b1cc33e7fb1aeb52f798a2"
+let commonVersion = "24.11.0-SNAPSHOT-03-22--04-28.git-209a00a"
+let commonChecksum = "9102e6fa54cb0a404edb2b4610716ac2b845e15d8b48c39d59eec4d4cba6a8fc"
+let releaseType = "snapshots"
 
 let turfVersion: Version = "4.0.0"
 
@@ -25,7 +26,7 @@ let package = Package(
         ]),
         .binaryTarget(
             name: "MapboxCommon",
-            url: "https://api.mapbox.com/downloads/v2/mapbox-common/releases/ios/packages/\(commonVersion)/MapboxCommon.zip",
+            url: "https://api.mapbox.com/downloads/v2/mapbox-common/\(releaseType)/ios/packages/\(commonVersion)/MapboxCommon.zip",
             checksum: commonChecksum
         ),
         .testTarget(
