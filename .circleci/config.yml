@@ -19,22 +19,6 @@ workflows:
                 cocoapods: true
             - verify_branch:
                 name: Verify branch
-    notify_release:
-        jobs:
-        - notify_release:
-            filters:
-                tags:
-                    only: /(?!.*\bdaily\b)^v.*/
-                branches:
-                    ignore: /.*/
-    notify_release_daily:
-        jobs:
-        - notify_release_daily:
-            filters:
-                tags:
-                    only: /^v.*daily.*/
-                branches:
-                    ignore: /.*/
 
 jobs:
     macos-job:
@@ -130,46 +114,6 @@ jobs:
                   - run:
                       name: Verify LICENSE.md is up-to-date
                       command: ./scripts/release/check-license.sh
-    notify_release:
-        docker:
-            - image: cimg/base:stable
-        resource_class: small
-        steps:
-            - slack/notify:
-                channel: sdk-releases
-                event: pass
-                custom: |
-                    {
-                        "blocks": [
-                            {
-                                "type": "section",
-                                "text": {
-                                    "type": "mrkdwn",
-                                    "text": "Common SDK <https://github.com/mapbox/mapbox-sdk-common/releases/tag/$CIRCLE_TAG | $CIRCLE_TAG> or <https://github.com/mapbox/mapbox-sdk/releases/tag/common/$CIRCLE_TAG | common/$CIRCLE_TAG> has been released. cc @core-sdk-team  @gl-native-team @maps-android @maps-ios @search-sdk-team @navnative @navigation-ios @navigation-android"
-                                }
-                            }
-                        ]
-                    }
-    notify_release_daily:
-        docker:
-            - image: cimg/base:stable
-        resource_class: small
-        steps:
-            - slack/notify:
-                channel: sdk-releases
-                event: pass
-                custom: |
-                    {
-                        "blocks": [
-                            {
-                                "type": "section",
-                                "text": {
-                                    "type": "mrkdwn",
-                                    "text": "Common SDK daily version <https://github.com/mapbox/mapbox-sdk/releases/tag/common/$CIRCLE_TAG | common/$CIRCLE_TAG> has been released"
-                                }
-                            }
-                        ]
-                    }
     verify_branch:
         docker:
             - image: cimg/base:stable
