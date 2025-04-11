@@ -17,6 +17,11 @@ workflows:
             - macos-job:
                 name: CocoaPods
                 cocoapods: true
+            - verify_branch:
+                name: Verify branch
+                filters:
+                    branches:
+                        only: /^release*/
     notify_release:
         jobs:
         - notify_release:
@@ -168,3 +173,21 @@ jobs:
                             }
                         ]
                     }
+    verify_branch:
+        machine:
+            image: ubuntu-2004:202010-01
+        steps:
+            - checkout
+            - run:
+                name: Verify version
+                command: |
+                    VERSION=$(echo "${CIRCLE_BRANCH}" | sed -E "s/^release[\/-]v//")
+                    MAJOR=$(echo "${VERSION}" | cut -d. -f1)
+                    MINOR=$(echo "${VERSION}" | cut -d. -f2)
+                    echo "Version: ${VERSION} MAJOR: ${MAJOR} MINOR: ${MINOR}"
+                    if [[ "${MAJOR}" -eq 24 ]]; then
+                        if [[ "${MINOR}" -lt 6 ]]; then
+                            echo "Version ${VERSION} is not allowed to be released from the main branch because of incorrect dependencies in SPM. Please use lts branch (see lts/v24.5 for example)."
+                            exit 1
+                        fi
+                    fi
