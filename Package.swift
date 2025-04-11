@@ -5,7 +5,7 @@ import PackageDescription
 import Foundation
 
 let commonVersion = "24.10.1"
-let commonChecksum = "49b24e8b2def452aca40f8ecb3f3986a7d242dda295dd7af8ad4be3c96a8bb5f"
+let commonChecksum = "bad checksum to prevent automerge"
 
 let turfVersion: Version = "4.0.0"
 
