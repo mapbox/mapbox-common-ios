@@ -38,11 +38,11 @@ machine api.mapbox.com
 ###### Using SPM Package 📱🖥💻
 
 ```swift
-.package(url: "https://github.com/mapbox/mapbox-common-ios.git", from: "24.10.2"),
+.package(url: "https://github.com/mapbox/mapbox-common-ios.git", from: "24.9.1"),
 ```
 
 ##### CocoaPods 📱🖥💻
 
 ```ruby
-pod 'MapboxCommon', '24.10.2'
+pod 'MapboxCommon', '24.9.1'
 ```
