@@ -9,14 +9,11 @@ workflows:
         jobs:
             - macos-job:
                 name: SPM
-                xcode: "14.3.1" # Required for using binary frameworks with SPM
+                xcode: "15.4.0" # Required for using binary frameworks with SPM
                 spm: true
             - macos-job:
                 name: Carthage
                 carthage: true
-            - macos-job:
-                name: CocoaPods
-                cocoapods: true
     notify_release:
         jobs:
         - notify_release:
@@ -31,10 +28,7 @@ jobs:
         parameters:
             xcode:
                 type: string
-                default: "14.3.1"
-            cocoapods:
-                type: boolean
-                default: false
+                default: "15.4.0"
             carthage:
                 type: boolean
                 default: false
@@ -65,12 +59,6 @@ jobs:
                   - run:
                       name: Test Integration via Carthage
                       command: Tests/Integration/test_carthage.sh
-            - when:
-                condition: << parameters.cocoapods >>
-                steps:
-                  - run:
-                      name: Test Integration via CocoaPods
-                      command: Tests/Integration/test_cocoapods.sh
             - when:
                 condition: << parameters.spm >>
                 steps:
