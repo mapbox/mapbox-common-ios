@@ -45,13 +45,6 @@ struct MarketingVersion: ParsableCommand {
         try content.write(toFile: url.path, atomically: true, encoding: .utf8)
     }
 
-    func runCocoaPodsVersionUpdate() throws {
-        let podfileURL = projectPathURL.appendingPathComponent("Tests/Integration/CocoaPods/Podfile")
-        try replaceLineContaining("pod 'MapboxCommon'",
-                                  with: "  pod 'MapboxCommon', '\(marketingVersion)'",
-                                  in: podfileURL)
-    }
-
     func runCarthageVersionUpdate() throws {
         let cartfileURL = projectPathURL.appendingPathComponent("Tests/Integration/Carthage/Cartfile")
         try replaceLineContaining("binary \"https://api.mapbox.com/downloads/v2/carthage/mapbox-common/",
@@ -87,7 +80,6 @@ struct MarketingVersion: ParsableCommand {
     }
 
     mutating func run() throws {
-        try runCocoaPodsVersionUpdate()
         try runCarthageVersionUpdate()
         try runSPMVersionUpdate()
 
