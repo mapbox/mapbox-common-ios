@@ -1,0 +1,711 @@
+{
+  "@context": "https://spdx.org/rdf/3.0.1/spdx-context.jsonld",
+  "@graph": [
+    {
+      "@id": "_:creationinfo",
+      "type": "CreationInfo",
+      "specVersion": "3.0.1",
+      "created": "2026-11-09T13:44:51Z",
+      "createdBy": [
+        "urn:spdx:org:Mapbox"
+      ]
+    },
+    {
+      "spdxId": "urn:spdx:org:Mapbox",
+      "type": "Organization",
+      "name": "Mapbox",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:package:mapbox-common-ios",
+      "type": "software_Package",
+      "name": "mapbox-common-ios",
+      "software_packageVersion": "24.36.0-SNAPSHOT-11-09--12-22.git-ac39d1f",
+      "software_downloadLocation": "https://github.com/mapbox/mapbox-common-ios",
+      "externalIdentifier": [
+        {
+          "type": "ExternalIdentifier",
+          "externalIdentifierType": "packageUrl",
+          "identifier": "pkg:swift/github.com/mapbox/mapbox-common-ios@24.36.0-SNAPSHOT-11-09--12-22.git-ac39d1f"
+        }
+      ],
+      "suppliedBy": "urn:spdx:org:Mapbox",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:LicenseRef-Mapbox-Terms-of-Service",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "LicenseRef-Mapbox-Terms-of-Service",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:package:mapbox-common-ios:4",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:package:mapbox-common-ios",
+      "to": [
+        "urn:spdx:license:LicenseRef-Mapbox-Terms-of-Service"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Cameron%20Desrochers",
+      "type": "Organization",
+      "name": "Cameron Desrochers",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:concurrentqueue@c6807212",
+      "type": "software_Package",
+      "name": "concurrentqueue",
+      "suppliedBy": "urn:spdx:org:Cameron%20Desrochers",
+      "software_downloadLocation": "https://github.com/cameron314/concurrentqueue",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "c6807212",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:BSD-2-Clause",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "BSD-2-Clause",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:concurrentqueue@c6807212:8",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:concurrentqueue@c6807212",
+      "to": [
+        "urn:spdx:license:BSD-2-Clause"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:protozero@v1.8.1",
+      "type": "software_Package",
+      "name": "protozero",
+      "suppliedBy": "urn:spdx:org:Mapbox",
+      "software_downloadLocation": "https://github.com/mapbox/protozero",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "v1.8.1",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:protozero@v1.8.1:10",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:protozero@v1.8.1",
+      "to": [
+        "urn:spdx:license:BSD-2-Clause"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:THL%20A29%20Limited%20and%20Milo%20Yip",
+      "type": "Organization",
+      "name": "THL A29 Limited and Milo Yip",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:RapidJSON@858451e5b7",
+      "type": "software_Package",
+      "name": "RapidJSON",
+      "suppliedBy": "urn:spdx:org:THL%20A29%20Limited%20and%20Milo%20Yip",
+      "software_downloadLocation": "https://rapidjson.org",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "858451e5b7",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:MIT",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "MIT",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:RapidJSON@858451e5b7:14",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:RapidJSON@858451e5b7",
+      "to": [
+        "urn:spdx:license:MIT"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Unicode%2C%20Inc",
+      "type": "Organization",
+      "name": "Unicode, Inc",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:sqlite@3.46.0",
+      "type": "software_Package",
+      "name": "sqlite",
+      "suppliedBy": "urn:spdx:org:Unicode%2C%20Inc",
+      "software_downloadLocation": "https://sqlite.org/index.html",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "3.46.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:blessing",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "blessing",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:sqlite@3.46.0:18",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:sqlite@3.46.0",
+      "to": [
+        "urn:spdx:license:blessing"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Facebook",
+      "type": "Organization",
+      "name": "Facebook",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:ZStd@22b4483163",
+      "type": "software_Package",
+      "name": "ZStd",
+      "suppliedBy": "urn:spdx:org:Facebook",
+      "software_downloadLocation": "https://github.com/facebook/zstd",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "22b4483163",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:BSD",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "BSD",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:ZStd@22b4483163:22",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:ZStd@22b4483163",
+      "to": [
+        "urn:spdx:license:BSD"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:ZStdSeekable@22b4483163",
+      "type": "software_Package",
+      "name": "ZStdSeekable",
+      "suppliedBy": "urn:spdx:org:Facebook",
+      "software_downloadLocation": "https://github.com/facebook/zstd",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "22b4483163",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:ZStdSeekable@22b4483163:24",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:ZStdSeekable@22b4483163",
+      "to": [
+        "urn:spdx:license:BSD"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Google",
+      "type": "Organization",
+      "name": "Google",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:abseil-containers@76bb2432",
+      "type": "software_Package",
+      "name": "abseil-containers",
+      "suppliedBy": "urn:spdx:org:Google",
+      "software_downloadLocation": "https://github.com/abseil/abseil-cpp.git",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "76bb2432",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:Apache-2.0",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "Apache-2.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:abseil-containers@76bb2432:28",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:abseil-containers@76bb2432",
+      "to": [
+        "urn:spdx:license:Apache-2.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Amazon%20Web%20Services",
+      "type": "Organization",
+      "name": "Amazon Web Services",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:aws-checksums@0.2.5",
+      "type": "software_Package",
+      "name": "aws-checksums",
+      "suppliedBy": "urn:spdx:org:Amazon%20Web%20Services",
+      "software_downloadLocation": "https://github.com/awslabs/aws-checksums",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "0.2.5",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:aws-checksums@0.2.5:31",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:aws-checksums@0.2.5",
+      "to": [
+        "urn:spdx:license:Apache-2.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:BLAKE3%20team",
+      "type": "Organization",
+      "name": "BLAKE3 team",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:BLAKE3@1.8.5",
+      "type": "software_Package",
+      "name": "BLAKE3",
+      "suppliedBy": "urn:spdx:org:BLAKE3%20team",
+      "software_downloadLocation": "https://github.com/BLAKE3-team/BLAKE3",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "1.8.5",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:Apache-2.0%20OR%20CC0-1.0",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "Apache-2.0 OR CC0-1.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:BLAKE3@1.8.5:35",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:BLAKE3@1.8.5",
+      "to": [
+        "urn:spdx:license:Apache-2.0%20OR%20CC0-1.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Boost%20authors",
+      "type": "Organization",
+      "name": "Boost authors",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:Boost%20C%2B%2B%20Libraries@1.89.0",
+      "type": "software_Package",
+      "name": "Boost C++ Libraries",
+      "suppliedBy": "urn:spdx:org:Boost%20authors",
+      "software_downloadLocation": "https://www.boost.org",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "1.89.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:BSL-1.0",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "BSL-1.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:Boost%20C%2B%2B%20Libraries@1.89.0:39",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:Boost%20C%2B%2B%20Libraries@1.89.0",
+      "to": [
+        "urn:spdx:license:BSL-1.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:brotli@v1.2.1",
+      "type": "software_Package",
+      "name": "brotli",
+      "suppliedBy": "urn:spdx:org:Google",
+      "software_downloadLocation": "https://github.com/google/brotli",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "v1.2.1",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:brotli@v1.2.1:41",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:brotli@v1.2.1",
+      "to": [
+        "urn:spdx:license:MIT"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:cheap-ruler-cpp-internal@",
+      "type": "software_Package",
+      "name": "cheap-ruler-cpp-internal",
+      "suppliedBy": "urn:spdx:org:Mapbox",
+      "software_downloadLocation": "https://github.com/mapbox/cheap-ruler-cpp-internal",
+      "software_copyrightText": "NOASSERTION",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:ISC",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "ISC",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:cheap-ruler-cpp-internal@:44",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:cheap-ruler-cpp-internal@",
+      "to": [
+        "urn:spdx:license:ISC"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Martin%20Moene",
+      "type": "Organization",
+      "name": "Martin Moene",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:expected-lite@a0c4e02499",
+      "type": "software_Package",
+      "name": "expected-lite",
+      "suppliedBy": "urn:spdx:org:Martin%20Moene",
+      "software_downloadLocation": "https://github.com/martinmoene/expected-lite",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "a0c4e02499",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:expected-lite@a0c4e02499:47",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:expected-lite@a0c4e02499",
+      "to": [
+        "urn:spdx:license:BSL-1.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Steffen%20Sch%C3%BCmann",
+      "type": "Organization",
+      "name": "Steffen Sch\u00fcmann",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:filesystem@0e72911ba0",
+      "type": "software_Package",
+      "name": "filesystem",
+      "suppliedBy": "urn:spdx:org:Steffen%20Sch%C3%BCmann",
+      "software_downloadLocation": "https://github.com/gulrak/filesystem/",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "0e72911ba0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:filesystem@0e72911ba0:50",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:filesystem@0e72911ba0",
+      "to": [
+        "urn:spdx:license:MIT"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Victor%20Zverovich",
+      "type": "Organization",
+      "name": "Victor Zverovich",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:fmt@21d4cc15c8",
+      "type": "software_Package",
+      "name": "fmt",
+      "suppliedBy": "urn:spdx:org:Victor%20Zverovich",
+      "software_downloadLocation": "https://fmt.dev/latest/index.html",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "21d4cc15c8",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:fmt@21d4cc15c8:53",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:fmt@21d4cc15c8",
+      "to": [
+        "urn:spdx:license:MIT"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:geojson-cpp-internal@",
+      "type": "software_Package",
+      "name": "geojson-cpp-internal",
+      "suppliedBy": "urn:spdx:org:Mapbox",
+      "software_downloadLocation": "https://github.com/mapbox/geojson-cpp-internal",
+      "software_copyrightText": "NOASSERTION",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:geojson-cpp-internal@:55",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:geojson-cpp-internal@",
+      "to": [
+        "urn:spdx:license:ISC"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:David%20Robert%20Nadeau",
+      "type": "Organization",
+      "name": "David Robert Nadeau",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:getrss@dev",
+      "type": "software_Package",
+      "name": "getrss",
+      "suppliedBy": "urn:spdx:org:David%20Robert%20Nadeau",
+      "software_downloadLocation": "http://NadeauSoftware.com/",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "dev",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:CC-BY-3.0",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "CC-BY-3.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:getrss@dev:59",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:getrss@dev",
+      "to": [
+        "urn:spdx:license:CC-BY-3.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:gzip-hpp@v0.1.0",
+      "type": "software_Package",
+      "name": "gzip-hpp",
+      "suppliedBy": "urn:spdx:org:Mapbox",
+      "software_downloadLocation": "https://github.com/mapbox/gzip-hpp",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "v0.1.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:BSD-3-Clause",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "BSD-3-Clause",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:gzip-hpp@v0.1.0:62",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:gzip-hpp@v0.1.0",
+      "to": [
+        "urn:spdx:license:BSD-3-Clause"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:geometry-hpp-internal@1.1.0",
+      "type": "software_Package",
+      "name": "geometry-hpp-internal",
+      "suppliedBy": "urn:spdx:org:Mapbox",
+      "software_downloadLocation": "https://github.com/mapbox/geometry-hpp-internal",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "1.1.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:geometry-hpp-internal@1.1.0:64",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:geometry-hpp-internal@1.1.0",
+      "to": [
+        "urn:spdx:license:ISC"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Frank%20Thilo",
+      "type": "Organization",
+      "name": "Frank Thilo",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:md5@",
+      "type": "software_Package",
+      "name": "md5",
+      "suppliedBy": "urn:spdx:org:Frank%20Thilo",
+      "software_downloadLocation": "https://www.bzflag.org/",
+      "software_copyrightText": "NOASSERTION",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:RSA-MD",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "RSA-MD",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:md5@:68",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:md5@",
+      "to": [
+        "urn:spdx:license:RSA-MD"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Adam%20Yaxley",
+      "type": "Organization",
+      "name": "Adam Yaxley",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:obfuscate@674a53f34c",
+      "type": "software_Package",
+      "name": "obfuscate",
+      "suppliedBy": "urn:spdx:org:Adam%20Yaxley",
+      "software_downloadLocation": "https://github.com/adamyaxley/Obfuscate",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "674a53f34c",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:license:Unlicense",
+      "type": "simplelicensing_LicenseExpression",
+      "simplelicensing_licenseExpression": "Unlicense",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:obfuscate@674a53f34c:72",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:obfuscate@674a53f34c",
+      "to": [
+        "urn:spdx:license:Unlicense"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:org:Angus%20Johnson%20and%20Mapbox",
+      "type": "Organization",
+      "name": "Angus Johnson and Mapbox",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:native:wagyu@0.5.0",
+      "type": "software_Package",
+      "name": "wagyu",
+      "suppliedBy": "urn:spdx:org:Angus%20Johnson%20and%20Mapbox",
+      "software_downloadLocation": "https://github.com/mapbox/wagyu.git",
+      "software_copyrightText": "NOASSERTION",
+      "software_packageVersion": "0.5.0",
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:hasDeclaredLicense:urn:spdx:native:wagyu@0.5.0:75",
+      "type": "Relationship",
+      "relationshipType": "hasDeclaredLicense",
+      "from": "urn:spdx:native:wagyu@0.5.0",
+      "to": [
+        "urn:spdx:license:BSL-1.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:rel:contains:urn:spdx:package:mapbox-common-ios:76",
+      "type": "Relationship",
+      "relationshipType": "contains",
+      "from": "urn:spdx:package:mapbox-common-ios",
+      "to": [
+        "urn:spdx:native:concurrentqueue@c6807212",
+        "urn:spdx:native:protozero@v1.8.1",
+        "urn:spdx:native:RapidJSON@858451e5b7",
+        "urn:spdx:native:sqlite@3.46.0",
+        "urn:spdx:native:ZStd@22b4483163",
+        "urn:spdx:native:ZStdSeekable@22b4483163",
+        "urn:spdx:native:abseil-containers@76bb2432",
+        "urn:spdx:native:aws-checksums@0.2.5",
+        "urn:spdx:native:BLAKE3@1.8.5",
+        "urn:spdx:native:Boost%20C%2B%2B%20Libraries@1.89.0",
+        "urn:spdx:native:brotli@v1.2.1",
+        "urn:spdx:native:cheap-ruler-cpp-internal@",
+        "urn:spdx:native:expected-lite@a0c4e02499",
+        "urn:spdx:native:filesystem@0e72911ba0",
+        "urn:spdx:native:fmt@21d4cc15c8",
+        "urn:spdx:native:geojson-cpp-internal@",
+        "urn:spdx:native:getrss@dev",
+        "urn:spdx:native:gzip-hpp@v0.1.0",
+        "urn:spdx:native:geometry-hpp-internal@1.1.0",
+        "urn:spdx:native:md5@",
+        "urn:spdx:native:obfuscate@674a53f34c",
+        "urn:spdx:native:wagyu@0.5.0"
+      ],
+      "creationInfo": "_:creationinfo"
+    },
+    {
+      "spdxId": "urn:spdx:sbom",
+      "type": "software_Sbom",
+      "rootElement": [
+        "urn:spdx:package:mapbox-common-ios"
+      ],
+      "creationInfo": "_:creationinfo",
+      "profileConformance": [
+        "core",
+        "software",
+        "simpleLicensing",
+        "lite"
+      ]
+    },
+    {
+      "spdxId": "urn:spdx:document",
+      "type": "SpdxDocument",
+      "name": "mapbox-common-ios 24.36.0-SNAPSHOT-11-09--12-22.git-ac39d1f",
+      "rootElement": [
+        "urn:spdx:sbom"
+      ],
+      "creationInfo": "_:creationinfo",
+      "profileConformance": [
+        "core",
+        "software",
+        "simpleLicensing",
+        "lite"
+      ]
+    }
+  ]
+}
